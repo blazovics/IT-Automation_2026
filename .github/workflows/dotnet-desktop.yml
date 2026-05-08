@@ -28,6 +28,6 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1.21.0
       with:
-        artifacts: "/home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/UltimateApp"
+        artifacts: "/home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/UltimateApp/"
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: "0.1"
