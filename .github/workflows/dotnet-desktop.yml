@@ -19,3 +19,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+    - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/
+    - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Debug/net8.0/
+      
