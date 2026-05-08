@@ -8,7 +8,7 @@ namespace UltimateApp
         {
             int? a, b;
 
-            a = getInputOperands("Give first operand");
+            a = getInputOperands("Give first operand!");
 
             Operation? o = getOperationType("Give operation type {+,-,*,/,%}");
 
