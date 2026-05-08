@@ -23,4 +23,7 @@ jobs:
     - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Debug/net8.0/
       continue-on-error: true
     - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/
-      
+    - name: Create Release
+      uses: ncipollo/release-action@v1.21.0
+      with:
+        artifacts: "/home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/"
