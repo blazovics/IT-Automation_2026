@@ -30,4 +30,4 @@ jobs:
       with:
         artifacts: "/home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/"
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: "0.1"
+        tag: "0.2"
