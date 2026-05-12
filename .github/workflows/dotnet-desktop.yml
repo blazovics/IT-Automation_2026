@@ -23,6 +23,16 @@ jobs:
       run: dotnet build --no-restore --configuration Debug
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - uses: rishabhgupta/git-action-issue@v2
+      if: failure()
+      id: Issue
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        title: Test Failed
+        body: Do something!
+        assignees: 'blazovics'
+    - run: |
+        echo ${{ steps.issue.outputs.issue }}
     - name: Compress Release
       run: tar -czvf calculator.tar.gz -C /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/ .
     - name: Publish Release
