@@ -20,7 +20,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build --no-restore --configuration Debug
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
     - name: Compress Release
       run: tar -czvf calculator.tar.gz -C /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/ .
     - name: Publish Release
