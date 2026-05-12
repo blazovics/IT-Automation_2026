@@ -21,10 +21,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore --configuration Release
-    - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/
-    - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Debug/net8.0/
-      continue-on-error: true
-    - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/
     - name: Compress Release
       run: tar -czvf calculator.tar.gz -C /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/ .
     - name: Publish Release
