@@ -8,7 +8,9 @@ jobs:
   build:
   
     runs-on: ubuntu-24.04
-
+    permissions:
+      contents: write
+      
     steps:
     - uses: actions/checkout@v6
     - name: Setup .NET
@@ -18,12 +20,15 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --configuration Release
-    - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/
-    - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Debug/net8.0/
-      continue-on-error: true
-    - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/
-    - name: Create Release
+      run: dotnet build --no-restore --configuration Debug
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+    - name: Compress Release
+      run: tar -czvf calculator.tar.gz -C /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/ .
+    - name: Publish Release
       uses: ncipollo/release-action@v1.21.0
       with:
-        artifacts: "/home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/"
+        artifacts: calculator.tar.gz
+        #artifacts: "/home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/"
+        #token: ${{ secrets.GITHUB_TOKEN }}
+        tag: "0.41"
