@@ -26,11 +26,11 @@ jobs:
       continue-on-error: true
     - run: ls /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/
     - name: Compress Release
-      run: tar -czvf calculator.tar.gz /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/
+      run: tar -czvf calculator.tar.gz -C /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/ .
     - name: Publish Release
       uses: ncipollo/release-action@v1.21.0
       with:
         artifacts: calculator.tar.gz
         #artifacts: "/home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/"
         #token: ${{ secrets.GITHUB_TOKEN }}
-        tag: "0.4"
+        tag: "0.41"
