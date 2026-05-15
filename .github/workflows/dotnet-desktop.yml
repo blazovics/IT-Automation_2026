@@ -12,6 +12,12 @@ jobs:
       contents: write
       
     steps:
+    - name: Create an Issue
+      uses: JasonEtco/create-an-issue@v2
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          filename: .github/ultimate_issue_template.md
     - uses: actions/checkout@v6
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
