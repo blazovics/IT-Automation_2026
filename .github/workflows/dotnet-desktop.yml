@@ -28,7 +28,14 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Debug
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal --logger trx --results-directory "TestResults"
+    - name: Publish Test 
+      uses: dorny/test-reporter@v3
+      if: always()
+      with:
+        name: Test Results on dev
+        path: ./TestResults/*.trx
+        reporter: dotnet-trx
     - name: Create an Issue
       if: failure()
       uses: JasonEtco/create-an-issue@v2
