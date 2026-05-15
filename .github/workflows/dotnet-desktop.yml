@@ -23,14 +23,13 @@ jobs:
       run: dotnet build --no-restore --configuration Debug
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - uses: GuillaumeFalourd/open-issue-action@v1
+    - name: Create an Issue
       if: failure()
+      uses: JasonEtco/create-an-issue@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        access-token: ${{ secrets.ACCESS_TOKEN }}
-        repo-owner: blazovics
-        repo-name: IT-Automation_2026
-        issue-title: Custom title for new ISSUE
-        issue-body: Custom message for new ISSUE
+        filename: .github/ultimate_issue_template.md
     - name: Compress Release
       run: tar -czvf calculator.tar.gz -C /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp/bin/Release/net8.0/ .
     - name: Publish Release
