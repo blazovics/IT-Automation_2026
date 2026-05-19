@@ -44,7 +44,7 @@ jobs:
       with:
         flags: unittests
         name: codecov-umbrella
-        directory: /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp.Tests
+        directory: /home/runner/work/IT-Automation_2026/IT-Automation_2026/UltimateApp.Tests/
         fail_ci_if_error: true
         verbose: true
         token: ${{ secrets.CODECOV_TOKEN }}
