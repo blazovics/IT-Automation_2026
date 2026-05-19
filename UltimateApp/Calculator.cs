@@ -37,7 +37,7 @@ namespace UltimateApp
 
         private static int Modulo(int a, int b)
         {
-            return a /b;
+            return a % b;
         }
 
         public static int? calculate(int a, int b, Operation o)
