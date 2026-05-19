@@ -57,7 +57,7 @@ namespace UltimateApp
                     return Divide(a, b);
 
                 case Operation.Modulo:
-                    return Divide(a, b);
+                    return Modulo(a, b);
 
                 default:
                     return null;
