@@ -23,7 +23,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Debug
     - name: Test
-      run: dotnet test --no-restore --verbosity normal --logger trx --results-directory "TestResults" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+      run: dotnet test --verbosity normal --logger trx --results-directory "TestResults" /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
     - run: ls -l
     - name: Publish Test 
       uses: dorny/test-reporter@v3
