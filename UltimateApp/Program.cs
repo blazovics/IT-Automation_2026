@@ -2,7 +2,7 @@
 
 namespace UltimateApp
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -66,6 +66,7 @@ namespace UltimateApp
                     case "%":
                         return Operation.Modulo;
                 }
+                return null;
             }
             return null;
         }
