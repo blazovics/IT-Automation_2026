@@ -19,11 +19,12 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore 
     - name: Build
-      run: dotnet build --no-restore --configuration Debug
+      run: dotnet build  --configuration Debug
     - name: Test
-      run: dotnet test --no-restore --verbosity normal --logger trx --results-directory "TestResults" --coverlet --coverlet-output-format opencover
+      run: dotnet test --no-restore --verbosity diag --logger trx --results-directory "TestResults" -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=${{ github.workspace }}/coverage/
+    - run: ls -lR 
     - name: Publish Test 
       uses: dorny/test-reporter@v3
       if: always()
@@ -44,6 +45,7 @@ jobs:
       with:
         flags: unittests
         name: codecov-umbrella
+        files: ./UltimateApp.Tests/coverage.opencover.xml
         fail_ci_if_error: true
         verbose: true
         token: ${{ secrets.CODECOV_TOKEN }}
